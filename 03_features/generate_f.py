@@ -26,14 +26,14 @@
 # b = t[1]
 
 #generator函数
-def fib(max):
-    n,a,b=0,0,1
-    while n<max:
-        #print(b)
-        yield b
-        a,b=b,a+b
-        n=n+1
-    return 'done'
+# def fib(max):
+#     n,a,b=0,0,1
+#     while n<max:
+#         #print(b)
+#         yield b
+#         a,b=b,a+b
+#         n=n+1
+#     return 'done'
 # f=fib(6)
 # print([x for x in f])
 
@@ -60,25 +60,22 @@ def fib(max):
 # print(next(o))
 # print(next(o))
 
-# def triangles():
-#     L1=[1]
-#     L2=[1]
-#     while True:
-#         yield L2
-#         if len(L1)<2:
-#             L2.insert(1,L1[0])
-#             L1=L2
-#         else:
-#             L2.insert(1,L1[0]+L1[1])
-#             for n in range(len(L2)):
-#                 if n>1 and n<len(L2)-1:
-#                     L2[n]=L1[n-1]+L1[n]
-#             L1=L2
 def triangles():
-    row = [1]
+    L2=[1]
     while True:
-        yield row
-        row = [1] + [row[i] + row[i + 1] for i in range(len(row) - 1)] + [1]
+        yield L2
+        L1=[1]
+        for n in range(len(L2)-1):
+            L1.append(L2[n]+L2[n+1])
+        L1.append(1)
+        L2=L1
+#list指针关系，如果一直修改L2并返回L2，最后测试case中每个list都是10个元素。
+#下方为chatGPT生成的代码
+# def triangles():
+#     row = [1]
+#     while True:
+#         yield row
+#         row = [1] + [row[i] + row[i + 1] for i in range(len(row) - 1)] + [1]
 
 # 期待输出:
 # [1]
