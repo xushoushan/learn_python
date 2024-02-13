@@ -51,8 +51,8 @@ print(fn())
 sum = obj.x + obj.y
 
 
-def readImage(fp):
-    if hasattr(fp, 'read'):
-        return read(fp)
-    return None
+# def readImage(fp):
+#     if hasattr(fp, 'read'):
+#         return read(fp)
+#     return None
 
